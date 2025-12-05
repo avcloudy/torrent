@@ -1,0 +1,5 @@
+.DS_Store
+*.pbxproj
+*.xcbk*\
+/xcdebugger
+/torrent.xcodeproj
