@@ -1,0 +1,789 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.xctest/Contents/MacOS/torrentPackageTests",
+      "packagePath" : "/Users/cloudy/swift/torrent/torrent",
+      "productName" : "torrentPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.torrent-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/sources",
+      "importPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/Sources/torrent/bencode.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/Sources/torrent/torrent.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/swift-version-642FED5F08DA2E9B.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "torrent",
+      "moduleOutputPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules/torrent.swiftmodule",
+      "objects" : [
+        "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/bencode.swift.o",
+        "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/torrent.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx26.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/include/torrent-Swift.h",
+        "-color-diagnostics",
+        "-swift-version",
+        "6",
+        "-I",
+        "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-L",
+        "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-plugin-path",
+        "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "torrent"
+      ],
+      "outputFileMapPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/bencode.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/torrent.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules/torrent.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/cloudy/swift/torrent/torrent/Sources/torrent/bencode.swift",
+        "/Users/cloudy/swift/torrent/torrent/Sources/torrent/torrent.swift"
+      ],
+      "tempsPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.torrent-cli-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent_cli.build/sources",
+      "importPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/Sources/torrent-cli/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/swift-version-642FED5F08DA2E9B.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules/torrent.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent_cli.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "torrent_cli",
+      "moduleOutputPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules/torrent_cli.swiftmodule",
+      "objects" : [
+        "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent_cli.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx26.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "torrent_cli_main",
+        "-color-diagnostics",
+        "-swift-version",
+        "6",
+        "-I",
+        "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-L",
+        "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-plugin-path",
+        "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "torrent"
+      ],
+      "outputFileMapPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent_cli.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent_cli.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules/torrent_cli.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/cloudy/swift/torrent/torrent/Sources/torrent-cli/main.swift"
+      ],
+      "tempsPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent_cli.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.torrentPackageTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.build/sources",
+      "importPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/swift-version-642FED5F08DA2E9B.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules/torrentTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "torrentPackageTests",
+      "moduleOutputPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules/torrentPackageTests.swiftmodule",
+      "objects" : [
+        "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx26.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.build/include/torrentPackageTests-Swift.h",
+        "-color-diagnostics",
+        "-I",
+        "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-L",
+        "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-plugin-path",
+        "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "torrent"
+      ],
+      "outputFileMapPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules/torrentPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.torrentTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentTests.build/sources",
+      "importPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/Tests/torrentTests/torrentTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/swift-version-642FED5F08DA2E9B.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules/torrent.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "torrentTests",
+      "moduleOutputPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules/torrentTests.swiftmodule",
+      "objects" : [
+        "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentTests.build/torrentTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx26.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-color-diagnostics",
+        "-swift-version",
+        "6",
+        "-I",
+        "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-L",
+        "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-plugin-path",
+        "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "torrent"
+      ],
+      "outputFileMapPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentTests.build/torrentTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules/torrentTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/cloudy/swift/torrent/torrent/Tests/torrentTests/torrentTests.swift"
+      ],
+      "tempsPath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "torrent" : [
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "torrent",
+      "-package-name",
+      "torrent",
+      "-c",
+      "/Users/cloudy/swift/torrent/torrent/Sources/torrent/bencode.swift",
+      "/Users/cloudy/swift/torrent/torrent/Sources/torrent/torrent.swift",
+      "-I",
+      "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/include/torrent-Swift.h",
+      "-color-diagnostics",
+      "-swift-version",
+      "6",
+      "-I",
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-L",
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-plugin-path",
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "torrent",
+      "-driver-use-frontend-path",
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/bin/swiftc"
+    ],
+    "torrentPackageTests" : [
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "torrentPackageTests",
+      "-package-name",
+      "torrent",
+      "-c",
+      "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.derived/runner.swift",
+      "-I",
+      "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.build/include/torrentPackageTests-Swift.h",
+      "-color-diagnostics",
+      "-I",
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-L",
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-plugin-path",
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "torrent",
+      "-driver-use-frontend-path",
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/bin/swiftc"
+    ],
+    "torrentTests" : [
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "torrentTests",
+      "-package-name",
+      "torrent",
+      "-c",
+      "/Users/cloudy/swift/torrent/torrent/Tests/torrentTests/torrentTests.swift",
+      "-I",
+      "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-color-diagnostics",
+      "-swift-version",
+      "6",
+      "-I",
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-L",
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-plugin-path",
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "torrent",
+      "-driver-use-frontend-path",
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/bin/swiftc"
+    ],
+    "torrent_cli" : [
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "torrent_cli",
+      "-package-name",
+      "torrent",
+      "-c",
+      "/Users/cloudy/swift/torrent/torrent/Sources/torrent-cli/main.swift",
+      "-I",
+      "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx26.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "torrent_cli_main",
+      "-color-diagnostics",
+      "-swift-version",
+      "6",
+      "-I",
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-L",
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-plugin-path",
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "torrent",
+      "-driver-use-frontend-path",
+      "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "torrent" : [
+
+    ],
+    "torrentPackageTests" : [
+      "torrentTests",
+      "torrent"
+    ],
+    "torrentTests" : [
+      "torrent"
+    ],
+    "torrent_cli" : [
+      "torrent"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+    "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.derived/runner.swift" : {
+      "inputs" : [
+
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/swift-version-642FED5F08DA2E9B.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/Library/Developer/Toolchains/swift-6.2.1-RELEASE.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/swift-version-642FED5F08DA2E9B.txt"
+    },
+    "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent-cli-entitlement.plist" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<entitlement-plist>"
+        },
+        {
+          "kind" : "virtual",
+          "name" : "<com.apple.security.get-task-allow>"
+        }
+      ],
+      "outputFilePath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent-cli-entitlement.plist"
+    },
+    "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent-cli.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/bencode.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/torrent.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent_cli.build/main.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent-cli.product/Objects.LinkFileList"
+    },
+    "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/Sources/torrent/bencode.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/Sources/torrent/torrent.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/sources"
+    },
+    "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.build/sources"
+    },
+    "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/bencode.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/torrent.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentTests.build/torrentTests.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.product/Objects.LinkFileList"
+    },
+    "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/Tests/torrentTests/torrentTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentTests.build/sources"
+    },
+    "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent_cli.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/cloudy/swift/torrent/torrent/Sources/torrent-cli/main.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent_cli.build/sources"
+    }
+  }
+}

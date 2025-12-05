@@ -1,0 +1,19 @@
+{
+  "": {
+    "swift-dependencies": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/master.swiftdeps"
+  },
+  "/Users/cloudy/swift/torrent/torrent/Sources/torrent/bencode.swift": {
+    "dependencies": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/bencode.d",
+    "object": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/bencode.swift.o",
+    "swiftmodule": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/bencode~partial.swiftmodule",
+    "swift-dependencies": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/bencode.swiftdeps",
+    "diagnostics": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/bencode.dia"
+  },
+  "/Users/cloudy/swift/torrent/torrent/Sources/torrent/torrent.swift": {
+    "dependencies": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/torrent.d",
+    "object": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/torrent.swift.o",
+    "swiftmodule": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/torrent~partial.swiftmodule",
+    "swift-dependencies": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/torrent.swiftdeps",
+    "diagnostics": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent.build/torrent.dia"
+  }
+}

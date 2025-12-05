@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.xctest/Contents/MacOS/torrentPackageTests'
+relocations:     []
+...

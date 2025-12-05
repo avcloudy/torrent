@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent_cli.build/master.swiftdeps"
+  },
+  "/Users/cloudy/swift/torrent/torrent/Sources/torrent-cli/main.swift": {
+    "dependencies": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent_cli.build/main.d",
+    "object": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent_cli.build/main.swift.o",
+    "swiftmodule": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent_cli.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent_cli.build/main.swiftdeps",
+    "diagnostics": "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrent_cli.build/main.dia"
+  }
+}

@@ -1,0 +1,3 @@
+module torrentPackageTests {
+    header "/Users/cloudy/swift/torrent/torrent/.build/arm64-apple-macosx/debug/torrentPackageTests.build/include/torrentPackageTests-Swift.h"
+}
