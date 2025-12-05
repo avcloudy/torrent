@@ -3,4 +3,5 @@
 *.xcbk*\
 /xcdebugger
 /.build
+torrent.xcodeproj
 
