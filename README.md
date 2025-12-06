@@ -1,4 +1,5 @@
 # Unnamed Torrent Project
+v0.0.2-alpha
 Unnamed Torrent Project is an implementation of a torrent client written in Swift. The hope
 is to make a Mac-native GUI torrent client written completely in Swift and SwiftUI. 
 Using Swift to build familiarity in the language, and hopefully to reuse a lot of this

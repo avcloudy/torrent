@@ -5,13 +5,32 @@ import Foundation
 // the stack
 // do i actually need to do this? can just have bencoder return a raw object
 // of the correct type since it returns the first bencoded object it finds
-// TODO: - Try creating a bencode struct that doesn't use enum like this
 // TODO: - Create a bencode .swift file that uses only functions - perf test
 public enum bencodeDataType: Hashable {
     case string(String)
     case int(Int)
     indirect case dict(Dictionary<bencodeDataType, bencodeDataType>)
     indirect case list(Array<bencodeDataType>)
+    
+    public var nativeValue: Any {
+            switch self {
+            case .string(let s):
+                return s
+            case .int(let i):
+                return i
+            case .list(let arr):
+                return arr.map { $0.nativeValue }
+            case .dict(let dict):
+                var nativeDict: [String: Any] = [:]
+                for (key, value) in dict {
+                    guard case let .string(keyString) = key else {
+                                    fatalError("Dictionary key must be a string")
+                                }
+                    nativeDict[keyString] = value.nativeValue
+                }
+                return nativeDict
+            }
+        }
 }
 
 // needed to create easy returns of custom types
@@ -20,7 +39,7 @@ extension bencodeDataType: CustomStringConvertible {
     public var description: String {
         switch self {
         case .string(let s):
-            return "\"\(s)\""
+            return "\(s)"
 
         case .int(let i):
             return "\(i)"
@@ -72,6 +91,9 @@ public struct Bencode {
         return root
     }
     
+//    public func unwrap(bencode: bencodeDataType) -> Any {
+//        
+//    }
     /// Recursively interpret Bencode objects
     /// - Parameter data: An array of characters, reversed to optimise popLast()
     /// - Returns: A complete bencodeDataType -> each decode function returns the first bencodeDataType it finds
@@ -124,12 +146,16 @@ public struct Bencode {
     
     private func decodeInt(stream: inout Array<Character>) -> bencodeDataType {
         var number = ""
+        
+        guard stream.last == "i" else{
+            fatalError("Invalid int construction, character = \(stream.last, default: "nil")")
+        }
         _ = stream.popLast()
         while let c = stream.popLast() {
             if c == "e" {break}
             number.append(c)
         }
-        return .int(Int(number)!)
+        return .int(Int(number) ?? 0 )
     }
     
     private func decodeDict(stream: inout [Character]) -> bencodeDataType {
@@ -176,3 +202,30 @@ public struct Bencode {
         return .list(list)
     }
 }
+
+//public func walk(_ value: bencodeDataType) {
+//    switch value {
+//
+//    case let .string(s):
+//        print("String:", s)
+//
+//    case let .int(i):
+//        print("Int:", i)
+//
+//    case let .list(items):
+//        print("List:")
+//        for item in items {
+//            walk(item)
+//        }
+//
+//    case let .dict(dict):
+//        print("Dict:")
+//        for (key, val) in dict {
+//            guard case let .string(keyString) = key else {
+//                fatalError("bencode dictionaries must have string keys")
+//            }
+//            print("Key:", keyString)
+//            walk(val)
+//        }
+//    }
+//}

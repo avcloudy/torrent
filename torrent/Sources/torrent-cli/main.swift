@@ -8,24 +8,67 @@
 import Foundation
 import torrent
 
-let bencodedString = "16:This is a string!4:eggs"
-let bencodedInt = "i14e"
-//let bencodedList = "l5:green4:eggs3:and3:hame"
-let bencodedList = "ll5:green4:eggs3:and3:hamel6:second4:list4:teste"
-let bencodedDict = "d4:spam4:eggs5:monty4:hall4:fuck6:horsese"
-let bdecoder = Bencode(data: bencodedString)
-let outputString = Bencode(data: bencodedString).decode()
-print(outputString)
-      
-let outputInt = Bencode(data: bencodedInt).decode()
-print(outputInt)
+let testBencodeString = "25:This is a bencode string!"
+//let testDecodedString = try decode(data: testBencodeString)
 
-let outputList = Bencode(data: bencodedList).decode()
-print(outputList)
-      
-let outputDict = Bencode(data: bencodedDict).decode()
-print(outputDict)
+if case let .string(testDecodedString) = try decode(data: testBencodeString) {
+    print(testDecodedString)
+    print(type(of: testDecodedString))
+}
 
-//var testDict: Dictionary<String, String> = [:]
-//testDict[""] = ""
-//print(testDict)
+let testBencodeInt = "i45e"
+if case let .int(testDecodedInt) = try decode(data: testBencodeInt) {
+    print(testDecodedInt)
+    print(type(of: testDecodedInt))
+}
+
+// TODO: Add dict to testBencodeList when dict parser ready
+//let testBencodeList = "l6:Stringe"
+let testBencodeList = "l6:Stringi45el6:Nested4:Listi2eee"
+if case let .list(testDecodedList) = try decode(data: testBencodeList) {
+    print(testDecodedList)
+    print(type(of: testDecodedList))
+    for item in testDecodedList {
+        print(item)
+    }
+}
+
+let testBencodeDict = "d4:spam4:eggs5:soundi42e4:listli1ei2ei3eee"
+//let testBencodeDict = "d4:spam4:eggse"
+if case let .dict(testDecodedDict) = try decode(data: testBencodeDict) {
+    print(testDecodedDict)
+    print(type(of: testDecodedDict))
+}
+
+let walkedString = try walker(bencodedObject: try decode(data: testBencodeString)!)
+let walkedInt = try walker(bencodedObject: try decode(data: testBencodeInt)!)
+let walkedList = try walker(bencodedObject: try decode(data: testBencodeList)!)
+let walkedDict = try walker(bencodedObject: try decode(data: testBencodeDict)!)
+
+print(walkedString)
+print(type(of: walkedString))
+print(walkedInt)
+print(type(of: walkedInt))
+print(walkedList)
+print(type(of: walkedList))
+print(walkedDict)
+print(type(of: walkedDict))
+
+// MARK: - walk through walkedList - modify to fit needs.
+if let array = walkedList as? [Any] {
+    for element in array{
+        switch element {
+        case let s as String:
+            print(s)
+        case let i as Int:
+            print(i)
+        case let l as [Any]:
+            print(l)
+        case let d as [String: Any]:
+            print(d)
+        default:
+            print("Error")
+        }
+    }
+}
+            
