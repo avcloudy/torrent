@@ -5,6 +5,11 @@ enum encodeError: Error {
     case nonASCIIString(string: String)
 }
 
+/// Bencode creator function.
+/// - Parameter data: A String, Int, Array[String, Int, Array, Dict] or Dict[String: String, Int, Array, Dict].
+/// - Throws: Throws if you provide it something that can't be encoded with Bencode. That includes an Array or Dict that contains a non-
+/// Bencodeable object, despite signature being Any
+/// - Returns: A String containing raw Bencode test for ASCII conversion
 public func encode(data: Any) throws -> String {
     switch data {
     case let s as String:
@@ -20,10 +25,10 @@ public func encode(data: Any) throws -> String {
     }
 }
 
+// MARK: Helper functions for encode(data:)
 private func encodeString(data: String) throws -> String {
     let lengthOfString = String(data.count)
     let encodedString = lengthOfString + ":" + data
-    // TODO: Make a function that converts input to ascii UInt8 byte string and check for conformance.
     // For now, just making simple swift typed returns to check patterns
 //    if let asciiString = encodedString.data(using: .ascii) {
 //        return .bytes(asciiString)

@@ -78,6 +78,8 @@ print(type(of: walkedList))
 //    }
 //}
  
+// MARK: ASCII test implementation
+
 let testascii = "This is just some test. I'm curious about how it will come out."
 if let asciitest = try? toBytes(data: testascii) {
     for item in asciitest {

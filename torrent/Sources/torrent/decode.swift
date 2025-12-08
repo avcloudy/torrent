@@ -1,5 +1,6 @@
 import Foundation
 
+// MARK: Error enum
 enum bencodeError: Error {
     case badBencodeStart(index: Int)
     case nonASCII
@@ -14,6 +15,17 @@ enum bencodeError: Error {
     case dictKeyNotStringWalker
 }
 
+// MARK: Decode function
+/// Decodes a Bencode encoded strong into constituent bencode objects, which is a thin wrapper around their native types
+/// - Parameter data: A String containing only ASCII characters encoded via Bencode
+///  String: Starts with length of string, : then string. this is a string! -> 17:this is a string!
+///  Integer: Starts with i, then contains int, ends with e. 42 -> i42e
+///  List: Starts with l, then contains contents of list, ends with e. can contain any Bencode object, including a list and a dictionary.
+///  ["Surface",["Nested", "List"]] -> l7:Surfacel6:Nested4:Listee
+///  Dictionary: Starts with d, then contains a string as key, then first value. Can contain any bencode object, including lists and dictionaries in value.
+///  ["Key": "Value", "Dictionary": ["Type": "Dictionary"],"List":["Sample", "List"]] -> d3:Key5:Value10:Dictionaryd4:type10:Dictionarye4:Listl6:Sample4:Listee
+/// - Throws: If it happens at a specific index in string, returns where the problem is. This will usually be the end of the object with an error.
+/// - Returns: Bencode object. Return base value with eg guard let .string(rawvalue) = bencodeString
 public func decode(data: String) throws -> bencode? {
     guard let asciiData = data.data(using: .ascii) else {
         throw bencodeError.nonASCII
@@ -23,6 +35,8 @@ public func decode(data: String) throws -> bencode? {
     let root = try dechunk(stream: stream, index: 0).0
     return root
 }
+
+// MARK: - Helper functions for decode(data: String)
 
 private func dechunk(stream: [Character], index: Int) throws -> (bencode?, Int) {
     let inNumberRange: ClosedRange<Character> = "0"..."9"
@@ -174,6 +188,12 @@ private func decodeDict(stream: [Character], index: Int) throws -> (bencode?, In
     return (.dict(dict), index)
 }
 
+// MARK: - Walker function for recursive extraction of lists and dictionaries
+/// Recursively walks through BencodeObject
+/// - Parameter bencodedObject: Any valid bencode object
+/// - Throws: If dict key isn't a string, throws error
+/// - Returns: As far as it can, returns the raw object. Because of the structure of Bencode, and Swift's type safety, lists and dicts
+/// return as [Any] and [String: Any], which is unavoidable. You probably need to know what's in the bencode object to extract the raw Swift type.
 public func walker(bencodedObject: bencode) throws -> Any {
     switch bencodedObject {
     case let .string(s):
