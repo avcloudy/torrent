@@ -77,25 +77,20 @@ print(type(of: walkedList))
 //        }
 //    }
 //}
- 
+
 // MARK: ASCII test implementation
 
 let testascii = "This is just some test. I'm curious about how it will come out."
 if let asciitest = try? toBytes(data: testascii) {
-    for item in asciitest {
-        print(item, separator: " ", terminator: " ")
-    }
+  for item in asciitest { print(item, separator: " ", terminator: " ") }
 }
 
 let recursiveList = [[[[["deep", "primitive", "recursion"]]]]]
 
-if let recursiveBencode = try? encode(data: recursiveList) {
-    print(recursiveBencode)
-}
+if let recursiveBencode = try? encode(data: recursiveList) { print(recursiveBencode) }
 
 let testDict: [String: Any] = ["surface": "dictionary", "nested": ["dictionary": "here"]]
 guard let encodedDict = try? encode(data: testDict) else {
-    fatalError("I would be more surprised if this actually worked first try")
+  fatalError("I would be more surprised if this actually worked first try")
 }
 print(encodedDict)
-
