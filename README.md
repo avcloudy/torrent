@@ -1,5 +1,5 @@
 # Murmuration
-v0.0.3-alpha
+v0.0.4-alpha
 
 Murmuration  is an implementation of a torrent client written in Swift. The hope
 is to make a Mac-native GUI torrent client written completely in Swift and SwiftUI. 
