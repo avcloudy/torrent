@@ -34,17 +34,17 @@ let testBencodeDict = "d4:spam4:eggs5:soundi42e4:listli1ei2ei3eee"
 //    print(type(of: testDecodedDict))
 //}
 
-let walkedString = try walker(bencodedObject: try decode(data: testBencodeString)!)
-let walkedInt = try walker(bencodedObject: try decode(data: testBencodeInt)!)
-let walkedList = try walker(bencodedObject: try decode(data: testBencodeList)!)
-let walkedDict = try walker(bencodedObject: try decode(data: testBencodeDict)!)
+//let walkedString = try walker(bencodedObject: try decode(data: testBencodeString)!)
+//let walkedInt = try walker(bencodedObject: try decode(data: testBencodeInt)!)
+//let walkedList = try walker(bencodedObject: try decode(data: testBencodeList)!)
+//let walkedDict = try walker(bencodedObject: try decode(data: testBencodeDict)!)
 
 //print(walkedString)
 //print(type(of: walkedString))
 //print(walkedInt)
 //print(type(of: walkedInt))
-print(walkedList)
-print(type(of: walkedList))
+//print(walkedList)
+//print(type(of: walkedList))
 //print(walkedDict)
 //print(type(of: walkedDict))
 
@@ -80,17 +80,31 @@ print(type(of: walkedList))
 
 // MARK: ASCII test implementation
 
-let testascii = "This is just some test. I'm curious about how it will come out."
-if let asciitest = try? toBytes(data: testascii) {
-  for item in asciitest { print(item, separator: " ", terminator: " ") }
+//let testascii = "This is just some test. I'm curious about how it will come out."
+//if let asciitest = try? toBytes(data: testascii) {
+//  for item in asciitest { print(item, separator: " ", terminator: " ") }
+//}
+//
+//let recursiveList = [[[[["deep", "primitive", "recursion"]]]]]
+//
+//if let recursiveBencode = try? encode(data: recursiveList) { print(recursiveBencode) }
+//
+//let testDict: [String: Any] = ["surface": "dictionary", "nested": ["dictionary": "here"]]
+//guard let encodedDict = try? encode(data: testDict) else {
+//  fatalError("I would be more surprised if this actually worked first try")
+//}
+//print(encodedDict)
+//
+//let url = URL(fileURLWithPath: "/Users/cloudy/Downloads/ubuntu-25.10-desktop-amd64.iso.torrent")
+//let fileData = try Data(contentsOf: url)
+
+//let testString = try fromBytes(data: fileData)
+//
+//print(testString)
+
+if let torrent = Torrent(path: "/Users/cloudy/Downloads/ubuntu-25.10-desktop-amd64.iso.torrent") {
+    print("✅ Torrent created")
+    print(torrent.getValues())
+} else {
+    print("❌ Failed to create torrent")
 }
-
-let recursiveList = [[[[["deep", "primitive", "recursion"]]]]]
-
-if let recursiveBencode = try? encode(data: recursiveList) { print(recursiveBencode) }
-
-let testDict: [String: Any] = ["surface": "dictionary", "nested": ["dictionary": "here"]]
-guard let encodedDict = try? encode(data: testDict) else {
-  fatalError("I would be more surprised if this actually worked first try")
-}
-print(encodedDict)
