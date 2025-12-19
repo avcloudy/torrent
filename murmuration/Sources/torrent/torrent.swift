@@ -1,19 +1,20 @@
+import CryptoKit
 import Foundation
 
 public enum TorrentResources {
     public static let bundle: Bundle = .module
 }
 
-public class Torrent {
+public class Torrent: Equatable {
     let announce: String
     let announceList: [String]?
     let comment: String?
     let creationDate: Int?
     let createdBy: String?
     let length: Int?
-    let name: String
+    public let name: String
     let pieceLength: Int
-    public let pieces: Data
+    let pieces: Data
     let isPrivate: Bool?
     let files: [[String: Any]]?
     let encoding: String?
@@ -29,9 +30,6 @@ public class Torrent {
         else {
             return nil
         }
-
-        // testing returns
-        // print(dict)
 
         // Check if dictionary values exist, cast them as the appropriate types, and assign
         if let announceData = dict["announce"] as? Data,
@@ -111,43 +109,56 @@ public class Torrent {
         }
     }
 
-    /// Get dictionary of values of torrent file
-    /// - Returns: Dictionary.
-    /// For debugging and later to be used in encode to create bencoded torrent binary streams
-    public func getValues() -> [String: Any] {
-        return [
-            "announce": announce,
-            "announceList": announceList ?? [],
-            "comment": comment ?? "",
-            "creationDate": creationDate ?? 0,
-            "createdBy": createdBy ?? "",
-            "length": length ?? 0,
-            "name": name,
-            "pieceLength": pieceLength,
-            "private": isPrivate ?? false,
-            "files": files ?? [],
-            "encoding": encoding ?? "",
-        ]
+    public static func == (lhs: Torrent, rhs: Torrent) -> Bool {
+        lhs.infoHash == rhs.infoHash
     }
 
-    public func getOptionalValues() -> [String: Any] {
-        var result: [String: Any] = [:]
-        var infoDict: [String: Any] = [
+    // MARK: Info dict and hashes
+    private func getInfoDict() -> [String: Any] {
+        let infoDict: [String: Any] = [
             "name": name,
             "piece length": pieceLength,
             "pieces": pieces,
+            "files": files as Any,
+            "length": length as Any,
+            "private": isPrivate as Any,
         ]
-        if !announce.isEmpty { result["announce"] = announce }
-        if let filesNotNil = files { infoDict["files"] = filesNotNil }
-        if let announceListNotNil = announceList { result["announce-list"] = announceListNotNil }
-        if let commentNotNil = comment { result["comment"] = commentNotNil }
-        if let creationDateNotNil = creationDate { result["creation date"] = creationDateNotNil }
-        if let createdByNotNil = createdBy { result["created by"] = createdByNotNil }
-        if let lengthNotNil = length { infoDict["length"] = lengthNotNil }
-        if let isPrivateNotNil = isPrivate { infoDict["private"] = isPrivateNotNil }
-        if let encodingNotNil = encoding { result["encoding"] = encodingNotNil }
-        result["info"] = infoDict
-        //        result["info"] = ["pieces": 1, "length": 2]
-        return result
+        return infoDict.compactMapValues { $0 }
+    }
+
+    public var infoDict: [String: Any] {
+        getInfoDict()
+    }
+
+    private func bencodeInfoDict() -> Data {
+        var infoDict: Data = Data()
+        do {
+            infoDict = try encode(data: getInfoDict())
+        } catch {
+            print(error)
+        }
+        return infoDict
+    }
+
+    private func getInfoHash() -> SHA256Digest {
+        SHA256.hash(data: bencodeInfoDict())
+    }
+
+    private var infoHash: SHA256Digest {
+        getInfoHash()
+    }
+
+    // MARK: Public getter
+    public func getValues() -> [String: Any] {
+        let result: [String: Any] = [
+            "announce": announce,
+            "announce-list": announceList as Any,
+            "comment": comment as Any,
+            "creation date": creationDate as Any,
+            "created by": createdBy as Any,
+            "encoding": encoding as Any,
+            "info": infoDict,
+        ]
+        return result.compactMapValues { $0 }
     }
 }
