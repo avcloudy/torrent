@@ -3,6 +3,59 @@ import Testing
 
 @testable import torrent
 
+class BencodeEncodeTests {
+    @Test
+    func encodeStringData() throws {
+        let exampleString = Data("This is a string!".utf8)
+        let exampleBencode = Data("17:This is a string!".utf8)
+        let encodedString = try encode(data: exampleString)
+        #expect(exampleBencode == encodedString)
+    }
+
+    @Test
+    func encodeString() throws {
+        let exampleString = "This really is a string!"
+        let exampleBencode = Data("24:This really is a string!".utf8)
+        let encodedString = try encode(data: exampleString)
+        #expect(exampleBencode == encodedString)
+    }
+
+    @Test
+    func encodeInt() throws {
+        let exampleInt = 42
+        let exampleBencode = Data("i42e".utf8)
+        let encodedInt = try encode(data: exampleInt)
+        #expect(exampleBencode == encodedInt)
+    }
+
+    @Test
+    func encodeList() throws {
+        let exampleList = ["this", "is", "a", "list"]
+        let exampleBencode = Data("l4:this2:is1:a4:liste".utf8)
+        let encodedList = try encode(data: exampleList)
+        #expect(exampleBencode == encodedList)
+    }
+
+    @Test
+    func encodeDist() throws {
+        // note ordering
+        let exampleDict: [String: Any] = [
+            "key": "value", "key2": "value", "intkey": 42, "listkey": ["this", "is", "a", "list"],
+        ]
+        let exampleBencode = Data(
+            "d6:intkeyi42e3:key5:value4:key25:value7:listkeyl4:this2:is1:a4:listee".utf8)
+        let encodedDict = try encode(data: exampleDict)
+        #expect(exampleBencode == encodedDict)
+    }
+    @Test
+    func encodeIntNegative() throws {
+        let exampleInt = -42
+        let exampleBencode = Data("i-42e".utf8)
+        let encodedInt = try encode(data: exampleInt)
+        #expect(exampleBencode == encodedInt)
+    }
+}
+
 class TorrentReadTests {
 
     // bundling resources within Swift because it's hard to get a good relative path
@@ -88,7 +141,7 @@ class TorrentReadTests {
     }
 }
 
-class TorrentEncodeTest {
+class TorrentEncodeTests {
 
     func getTorrent() -> String {
         guard
@@ -169,7 +222,5 @@ class MultiFileTorrents {
             let firstpath = firstlist?["path"] as? [String]
             #expect(firstpath == ["big numbers", "10.txt"])
         }
-
     }
-
 }

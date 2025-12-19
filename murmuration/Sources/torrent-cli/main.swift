@@ -26,8 +26,8 @@ let torrentURL = TorrentResources.bundle.url(
 print(torrentURL!.path)
 
 if let torrent = Torrent(path: torrentURL?.path ?? "") {
-    print("✅ lots-of-numbers.torrent Torrent created")
     let torrentfiles = torrent.getValues()["files"] as? [[String: Any]]
+    print("✅ lots-of-numbers.torrent Torrent created")
     //    let firstpath = torrentfiles?[0]["path"] as? [String]
     //    let firstlist = (torrentfiles?[0])
     //    let firstpath = firstlist?["path"]
