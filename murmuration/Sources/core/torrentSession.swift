@@ -1,25 +1,26 @@
 import Foundation
+import torrent
 
-public class TorrentSession {
+public class TorrentSession: @unchecked Sendable {
     public enum State {
         case stopped
         case running
     }
 
-    public let metadata: [String: Any]
+    public let metadata: Torrent
     public var state: State = .stopped
 
-    init(metadata: [String: Any]) {
+    init(metadata: Torrent) {
         self.metadata = metadata
     }
 
     func start() {
         state = .running
-        print("Started torrent: \(metadata["name"], default: "unnamed torrent")")
+        print("Started torrent: \(metadata.name, default: "unnamed torrent")")
     }
 
     func stop() {
         state = .stopped
-        print("Stopped torrent: \(metadata["name"], default: "unnamed torrent")")
+        print("Stopped torrent: \(metadata.name, default: "unnamed torrent")")
     }
 }

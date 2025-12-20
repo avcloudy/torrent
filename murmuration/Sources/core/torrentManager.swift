@@ -10,12 +10,12 @@ public actor TorrentManager {
 
     public func addTorrent(from path: String) throws {
         if let torrent = Torrent(path: path) {
-            let session = TorrentSession(metadata: torrent.getValues())
-            sessions[torrent.infoDict] = session
+            let session = TorrentSession(metadata: torrent)
+            sessions[torrent.getInfoHash()] = session
         }
     }
 
-    public func startTorrent(infoHash: Data) {
+    public func startTorrent(infoHash: String) {
         sessions[infoHash]?.start()
     }
 

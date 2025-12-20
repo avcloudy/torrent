@@ -170,7 +170,7 @@ class TorrentEncodeTests {
     @Test
     func OutputEquivalentToInput() throws {
         let torrent = Torrent(path: getTorrent())
-        let rawDict = torrent?.getOptionalValues()
+        let rawDict = torrent?.getValues()
         let bencodeComp = try encode(data: rawDict!)
         let torrentFileData = try Data(contentsOf: getFile())
         #expect(bencodeComp == torrentFileData)

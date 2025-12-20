@@ -29,6 +29,7 @@ let package = Package(
             name: "torrent-cli",
             dependencies: [
                 "torrent",
+                "cli",
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
             ],
         ),

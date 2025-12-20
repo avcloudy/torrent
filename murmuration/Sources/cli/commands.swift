@@ -2,11 +2,13 @@ import ArgumentParser
 import Foundation
 import core
 
-struct TorrentCLUI: AsyncParsableCommand {
-    static let configuration = CommandConfiguration(
+public struct TorrentCLI: AsyncParsableCommand {
+    public static let configuration = CommandConfiguration(
         commandName: "torrent",
         subcommands: [Add.self, Start.self, List.self]
     )
+
+    public init() {}
 }
 
 struct Add: AsyncParsableCommand {
@@ -24,7 +26,7 @@ struct Start: AsyncParsableCommand {
     var infoHash: String
 
     func run() async {
-        await TorrentManager.shared.startTorrent(infoHash: Data(infoHash.utf8))
+        await TorrentManager.shared.startTorrent(infoHash: infoHash)
     }
 }
 

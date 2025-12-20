@@ -5,19 +5,19 @@ public enum TorrentResources {
     public static let bundle: Bundle = .module
 }
 
-public class Torrent: Equatable {
-    let announce: String
-    let announceList: [String]?
-    let comment: String?
-    let creationDate: Int?
-    let createdBy: String?
-    let length: Int?
+public class Torrent {
+    public let announce: String
+    public let announceList: [String]?
+    public let comment: String?
+    public let creationDate: Int?
+    public let createdBy: String?
+    public let length: Int?
     public let name: String
-    let pieceLength: Int
-    let pieces: Data
-    let isPrivate: Bool?
-    let files: [[String: Any]]?
-    let encoding: String?
+    public let pieceLength: Int
+    public let pieces: Data
+    public let isPrivate: Bool?
+    public let files: [[String: Any]]?
+    public let encoding: String?
 
     public init?(path: String) {
         // read torrent file
@@ -109,9 +109,9 @@ public class Torrent: Equatable {
         }
     }
 
-    public static func == (lhs: Torrent, rhs: Torrent) -> Bool {
-        lhs.infoHash == rhs.infoHash
-    }
+    //    public static func == (lhs: Torrent, rhs: Torrent) -> Bool {
+    //        lhs.infoHash == rhs.infoHash
+    //    }
 
     // MARK: Info dict and hashes
     private func getInfoDict() -> [String: Any] {
@@ -140,13 +140,13 @@ public class Torrent: Equatable {
         return infoDict
     }
 
-    private func getInfoHash() -> SHA256Digest {
-        SHA256.hash(data: bencodeInfoDict())
+    public func getInfoHash() -> String {
+        SHA256.hash(data: bencodeInfoDict()).description
     }
 
-    private var infoHash: SHA256Digest {
-        getInfoHash()
-    }
+    //    private var infoHash: SHA256Digest {
+    //        getInfoHash()
+    //    }
 
     // MARK: Public getter
     public func getValues() -> [String: Any] {
