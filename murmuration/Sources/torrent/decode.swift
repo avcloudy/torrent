@@ -1,5 +1,12 @@
 import Foundation
 
+// MARK: decode
+// ##############################
+// decode.swift
+//
+// functions for bencode decoding
+// ##############################
+
 // MARK: Error enum
 enum bencodeError: Error {
     case badBencodeStart(index: Int)

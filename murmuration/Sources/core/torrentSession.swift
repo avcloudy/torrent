@@ -1,5 +1,14 @@
 import Foundation
 
+// MARK: torrentSession
+// ##############################
+// torrentSession.swift
+//
+// Anything unique to a specific session goes in here
+// eg peer id, current IP address
+// if it stays this threadbare i might just move all of this into TorrentManager
+// ##############################
+
 public final class TorrentSession: Sendable {
     public static let shared = TorrentSession()
 

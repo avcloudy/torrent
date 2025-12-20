@@ -76,68 +76,68 @@ class TorrentReadTests {
 
     @Test
     func announceName() {
-        let torrent = Torrent(path: getTorrent())
-        let torrentDict = torrent!.getValues()
-        #expect(torrentDict["announce"] as? String == "https://torrent.ubuntu.com/announce")
+        let torrent = try? Torrent(path: getTorrent())
+        let torrentDict = torrent?.getValues()
+        #expect(torrentDict?["announce"] as? String == "https://torrent.ubuntu.com/announce")
     }
 
     @Test
     func announceList() {
-        let torrent = Torrent(path: getTorrent())
-        let torrentDict = torrent!.getValues()
+        let torrent = try? Torrent(path: getTorrent())
+        let torrentDict = torrent?.getValues()
         #expect(
-            torrentDict["announceList"] as? [String] == [
+            torrentDict?["announceList"] as? [String] == [
                 "https://torrent.ubuntu.com/announce", "https://ipv6.torrent.ubuntu.com/announce",
             ])
     }
 
     @Test
     func comment() {
-        let torrent = Torrent(path: getTorrent())
-        let torrentDict = torrent!.getValues()
-        #expect(torrentDict["comment"] as? String == "Ubuntu CD releases.ubuntu.com")
+        let torrent = try? Torrent(path: getTorrent())
+        let torrentDict = torrent?.getValues()
+        #expect(torrentDict?["comment"] as? String == "Ubuntu CD releases.ubuntu.com")
     }
 
     @Test
     func creationDate() {
-        let torrent = Torrent(path: getTorrent())
-        let torrentDict = torrent!.getValues()
-        #expect(torrentDict["creationDate"] as? Int == 1_759_993_240)
+        let torrent = try? Torrent(path: getTorrent())
+        let torrentDict = torrent?.getValues()
+        #expect(torrentDict?["creationDate"] as? Int == 1_759_993_240)
     }
 
     @Test
     func createdBy() {
-        let torrent = Torrent(path: getTorrent())
-        let torrentDict = torrent!.getValues()
-        #expect(torrentDict["createdBy"] as? String == "mktorrent 1.1")
+        let torrent = try? Torrent(path: getTorrent())
+        let torrentDict = torrent?.getValues()
+        #expect(torrentDict?["createdBy"] as? String == "mktorrent 1.1")
     }
 
     @Test
     func length() {
-        let torrent = Torrent(path: getTorrent())
-        let torrentDict = torrent!.getValues()
-        #expect(torrentDict["length"] as? Int == 5_702_520_832)
+        let torrent = try? Torrent(path: getTorrent())
+        let torrentDict = torrent?.getValues()
+        #expect(torrentDict?["length"] as? Int == 5_702_520_832)
     }
 
     @Test
     func name() {
-        let torrent = Torrent(path: getTorrent())
-        let torrentDict = torrent!.getValues()
-        #expect(torrentDict["name"] as? String == "ubuntu-25.10-desktop-amd64.iso")
+        let torrent = try? Torrent(path: getTorrent())
+        let torrentDict = torrent?.getValues()
+        #expect(torrentDict?["name"] as? String == "ubuntu-25.10-desktop-amd64.iso")
     }
 
     @Test
     func pieceLength() {
-        let torrent = Torrent(path: getTorrent())
-        let torrentDict = torrent!.getValues()
-        #expect(torrentDict["pieceLength"] as? Int == 262144)
+        let torrent = try? Torrent(path: getTorrent())
+        let torrentDict = torrent?.getValues()
+        #expect(torrentDict?["pieceLength"] as? Int == 262144)
     }
 
     @Test
     func isPrivate() {
-        let torrent = Torrent(path: getTorrent())
-        let torrentDict = torrent!.getValues()
-        #expect(torrentDict["private"] as? Bool == false)
+        let torrent = try? Torrent(path: getTorrent())
+        let torrentDict = torrent?.getValues()
+        #expect(torrentDict?["private"] as? Bool == false)
     }
 }
 
@@ -169,7 +169,7 @@ class TorrentEncodeTests {
 
     @Test
     func OutputEquivalentToInput() throws {
-        let torrent = Torrent(path: getTorrent())
+        let torrent = try? Torrent(path: getTorrent())
         let rawDict = torrent?.getValues()
         let bencodeComp = try encode(data: rawDict!)
         let torrentFileData = try Data(contentsOf: getFile())
@@ -195,28 +195,28 @@ class MultiFileTorrents {
 
         @Test
         func creationDate() {
-            let torrent = Torrent(path: getTorrent())
-            let torrentDict = torrent!.getValues()
-            #expect(torrentDict["creationDate"] as? Int == 1_458_348_895_130)
+            let torrent = try? Torrent(path: getTorrent())
+            let torrentDict = torrent?.getValues()
+            #expect(torrentDict?["creationDate"] as? Int == 1_458_348_895_130)
         }
 
         @Test
         func encoding() {
-            let torrent = Torrent(path: getTorrent())
-            let torrentDict = torrent!.getValues()
-            #expect(torrentDict["encoding"] as? String == "UTF-8")
+            let torrent = try? Torrent(path: getTorrent())
+            let torrentDict = torrent?.getValues()
+            #expect(torrentDict?["encoding"] as? String == "UTF-8")
         }
 
         @Test
         func name() {
-            let torrent = Torrent(path: getTorrent())
-            let torrentDict = torrent!.getValues()
-            #expect(torrentDict["name"] as? String == "lots-of-numbers")
+            let torrent = try? Torrent(path: getTorrent())
+            let torrentDict = torrent?.getValues()
+            #expect(torrentDict?["name"] as? String == "lots-of-numbers")
         }
 
         @Test
         func filesnames() {
-            let torrent = Torrent(path: getTorrent())
+            let torrent = try? Torrent(path: getTorrent())
             let torrentDict = torrent?.getValues()["files"] as? [[String: Any]]
             let firstlist = (torrentDict?[0])
             let firstpath = firstlist?["path"] as? [String]

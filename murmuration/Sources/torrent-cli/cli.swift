@@ -5,6 +5,6 @@ import cli
 @main
 struct Main {
     static func main() async throws {
-        try await TorrentCLI.main()
+        await TorrentCLI.main()
     }
 }

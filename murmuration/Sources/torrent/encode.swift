@@ -1,5 +1,14 @@
 import Foundation
 
+// MARK: encode
+// ##############################
+// encode.swift
+//
+// currently contains the bencoder
+// but might expand this conceptually to include anything that could be encoded
+// for example representations of binary data, hashes, pieces etc
+// ##############################
+
 enum encodeError: Error {
     case nonBencodeableDataType
     case nonASCIIString(string: String)

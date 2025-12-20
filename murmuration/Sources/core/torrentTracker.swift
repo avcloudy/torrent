@@ -1,6 +1,16 @@
 import Foundation
 import torrent
 
+// MARK: torrentTracker
+// ##############################
+// torrentTracker.swift
+//
+// Whenever Murmuration interacts with a tracker
+// eg. announcing, scraping, etc
+// defined as a method on TorrentTracker
+// TODO: more robust port logic
+// ##############################
+
 public enum TrackerError: Error {
     case invalidURL
     case invalidResponse
@@ -24,7 +34,6 @@ public struct TorrentTracker {
         else {
             throw TrackerError.invalidResponse
         }
-
         return data
     }
 
@@ -46,6 +55,9 @@ public struct TorrentTracker {
         return components?.url
     }
 
+    // this could possibly move to encode
+    // probably need a bencoder, hex encoder, percent encoder
+    // and then bdecoder, hex decoder, percent decoder
     public static func percentEncode(data: Data) -> String {
         data.map { String(format: "%%%02X", $0) }.joined()
     }

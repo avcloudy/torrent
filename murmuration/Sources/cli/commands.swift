@@ -1,6 +1,13 @@
-import ArgumentParser
 import Foundation
+import ArgumentParser
 import core
+
+// MARK: commands
+// ##############################
+// commands
+//
+// this is where commands live
+// ##############################
 
 @available(macOS 10.15, macCatalyst 13, iOS 13, tvOS 13, watchOS 6, *)
 public struct TorrentCLI: AsyncParsableCommand {
@@ -11,11 +18,14 @@ public struct TorrentCLI: AsyncParsableCommand {
 
     public init() {}
 
-    // MARK: - Run interactive if no arguments
+    // run interactive if no arguments
+
     public func run() async throws {
         // Check if the process was invoked with subcommands
         if CommandLine.arguments.count > 1 {
             // There are arguments; ArgumentParser will handle them
+            // i think this might need to only run interactive. if you give arguments,
+            // immediately run that command then go into loop
             return
         }
 
@@ -25,8 +35,8 @@ public struct TorrentCLI: AsyncParsableCommand {
 }
 
 private func runREPL() async {
-    print("🎵 Murmuration Interactive CLI")
-    print("Type 'help' for commands, 'exit' to quit.\n")
+    print("Murmuration Interactive CLI")
+    print("Type 'help' for commands, 'exit' to quit.")
 
     while true {
         print("murmuration % ", terminator: "")

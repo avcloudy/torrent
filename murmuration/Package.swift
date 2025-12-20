@@ -8,7 +8,7 @@ let package = Package(
         .library(name: "torrent", targets: ["torrent"]),
         .library(name: "core", targets: ["core"]),
         .library(name: "cli", targets: ["cli"]),
-        .executable(name: "torrent-cli", targets: ["torrent-cli"]),
+        .executable(name: "murmuration", targets: ["murmuration"]),
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.7.0")
@@ -23,15 +23,18 @@ let package = Package(
             name: "core", dependencies: ["torrent"],
         ),
         .target(
-            name: "cli", dependencies: ["core"],
+            name: "cli", dependencies: [
+                "core",
+                .product(name: "ArgumentParser", package: "swift-argument-parser"),
+            ],
         ),
         .executableTarget(
-            name: "torrent-cli",
+            name: "murmuration",
             dependencies: [
                 "torrent",
                 "cli",
-                .product(name: "ArgumentParser", package: "swift-argument-parser"),
             ],
+            path: "Sources/torrent-cli",
         ),
         .testTarget(name: "torrentTests", dependencies: ["torrent"]),
     ])

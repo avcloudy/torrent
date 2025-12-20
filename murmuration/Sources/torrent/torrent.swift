@@ -1,6 +1,16 @@
 import CryptoKit
 import Foundation
 
+// MARK: torrent
+// ##############################
+// torrent.swift
+//
+// defines a torrent object that reads from a .torrent object
+// TODO: or a magnet link
+// and decodes the bencoded stream into a struct with fields
+// corresponding to bencode dictionary objects
+// ##############################
+
 public enum TorrentResources {
     public static let bundle: Bundle = .module
 }

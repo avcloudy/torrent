@@ -1,6 +1,14 @@
 import Foundation
 import torrent
 
+// MARK: torrentManager
+// ##############################
+// torrentManager.swift
+//
+// defines a singleton actor that manages torrent state
+// commands.swift CLI commands call actions in here
+// ##############################
+
 public actor TorrentManager {
     public static let shared = TorrentManager()
 
