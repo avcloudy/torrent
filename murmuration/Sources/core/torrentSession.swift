@@ -1,26 +1,22 @@
 import Foundation
-import torrent
 
-public class TorrentSession: @unchecked Sendable {
-    public enum State {
-        case stopped
-        case running
+public final class TorrentSession: Sendable {
+    public static let shared = TorrentSession()
+
+    public let peerID: Data
+
+    private init() {
+        self.peerID = TorrentSession.generatePeerId()
     }
 
-    public let metadata: Torrent
-    public var state: State = .stopped
+    private static func generatePeerId() -> Data {
+        // peer id MM for murmuration, version v0.0.4 -> 0004
+        let prefix = "-MM0004-".data(using: .ascii)!
 
-    init(metadata: Torrent) {
-        self.metadata = metadata
-    }
-
-    func start() {
-        state = .running
-        print("Started torrent: \(metadata.name, default: "unnamed torrent")")
-    }
-
-    func stop() {
-        state = .stopped
-        print("Stopped torrent: \(metadata.name, default: "unnamed torrent")")
+        var random = Data()
+        for _ in 0..<12 {
+            random.append(UInt8.random(in: 0...255))
+        }
+        return prefix + random
     }
 }

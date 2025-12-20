@@ -5,6 +5,12 @@ public enum TorrentResources {
     public static let bundle: Bundle = .module
 }
 
+public enum MetadataError: Error {
+    case invalidInfoDictionary
+    case invalidBencode
+    case unencodeableInfoDict
+}
+
 public class Torrent {
     public let announce: String
     public let announceList: [String]?
@@ -16,10 +22,13 @@ public class Torrent {
     public let pieceLength: Int
     public let pieces: Data
     public let isPrivate: Bool?
+    // TODO: implement files as struct and build a Files struct in initialiser
     public let files: [[String: Any]]?
     public let encoding: String?
+    public let infoHash: Data
+    public let bencodedInfoDict: Data
 
-    public init?(path: String) {
+    public init(path: String) throws(MetadataError) {
         // read torrent file
         let url = URL(fileURLWithPath: path)
         let fileData = (try? Data(contentsOf: url)) ?? Data()
@@ -28,7 +37,7 @@ public class Torrent {
         guard let decoded = try? decode(data: fileData),
             let dict = try? walker(bencodedObject: decoded) as? [String: Any]
         else {
-            return nil
+            throw MetadataError.invalidBencode
         }
 
         // Check if dictionary values exist, cast them as the appropriate types, and assign
@@ -62,7 +71,9 @@ public class Torrent {
 
         self.creationDate = dict["creation date"] as? Int
 
-        guard let infoDict = dict["info"] as? [String: Any] else { return nil }
+        guard let infoDict = dict["info"] as? [String: Any] else {
+            throw MetadataError.invalidInfoDictionary
+        }
 
         self.length = infoDict["length"] as? Int ?? nil
 
@@ -107,11 +118,21 @@ public class Torrent {
         } else {
             self.encoding = nil
         }
+        guard let bencodeInfoDict = try? encode(data: infoDict) else {
+            throw MetadataError.unencodeableInfoDict
+        }
+
+        infoHash = Torrent.getInfoHash(data: bencodeInfoDict)
+        bencodedInfoDict = bencodeInfoDict
     }
 
     //    public static func == (lhs: Torrent, rhs: Torrent) -> Bool {
     //        lhs.infoHash == rhs.infoHash
     //    }
+
+    private static func getInfoHash(data: Data) -> Data {
+        Data(Insecure.SHA1.hash(data: data))
+    }
 
     // MARK: Info dict and hashes
     private func getInfoDict() -> [String: Any] {
@@ -126,7 +147,7 @@ public class Torrent {
         return infoDict.compactMapValues { $0 }
     }
 
-    public var infoDict: [String: Any] {
+    private var infoDict: [String: Any] {
         getInfoDict()
     }
 
@@ -140,15 +161,13 @@ public class Torrent {
         return infoDict
     }
 
-    public func getInfoHash() -> String {
-        SHA256.hash(data: bencodeInfoDict()).description
-    }
-
     //    private var infoHash: SHA256Digest {
     //        getInfoHash()
     //    }
 
-    // MARK: Public getter
+    // MARK: Deprecated public getter
+    // Preserved for testing
+    // get values directly from torrent ie torrent.announce
     public func getValues() -> [String: Any] {
         let result: [String: Any] = [
             "announce": announce,

@@ -4,23 +4,62 @@ import torrent
 public actor TorrentManager {
     public static let shared = TorrentManager()
 
-    private var sessions: [String: TorrentSession] = [:]
+    private var torrents: [String: TorrentInstance] = [:]
 
     private init() {}
 
     public func addTorrent(from path: String) throws {
-        if let torrent = Torrent(path: path) {
-            let session = TorrentSession(metadata: torrent)
-            sessions[torrent.getInfoHash()] = session
+        let torrent = try Torrent(path: path)
+        let instance = TorrentInstance(metadata: torrent)
+        torrents[torrent.name] = instance
+
+        if let url = TorrentTracker.announceUrl(
+            metadata: torrent, peerID: TorrentSession.shared.peerID)
+        {
+            print("Tracker announce URL:", url)
         }
     }
 
-    public func startTorrent(infoHash: String) {
-        sessions[infoHash]?.start()
+    public func announceToTracker(name: String) async throws {
+        guard let torrent = torrents[name] else {
+            throw TrackerError.torrentNotFound
+        }
+        guard
+            let url = TorrentTracker.announceUrl(
+                metadata: torrent.metadata, peerID: TorrentSession.shared.peerID)
+        else {
+            throw TrackerError.invalidURL
+        }
+
+        let (data, _) = try await URLSession.shared.data(from: url)
+        // parse tracker response (bencoded dictionary)
+        if let string = String(data: data, encoding: .utf8) {
+            print("Tracker response as UTF-8:\n\(string)")
+        } else {
+            print(
+                "Tracker response contains non-UTF8 bytes. Printing raw with hex for binary sections:"
+            )
+
+            var output = ""
+            for byte in data {
+                if byte >= 32 && byte <= 126 {
+                    // printable ASCII
+                    output.append(Character(UnicodeScalar(byte)))
+                } else {
+                    // non-printable: hex
+                    output.append(String(format: "\\x%02x", byte))
+                }
+            }
+            print(output)
+        }
     }
 
-    public func listTorrents() -> [TorrentSession] {
-        Array(sessions.values)
+    public func startTorrent(name: String) {
+        torrents[name]?.start()
+    }
+
+    public func listTorrents() -> [TorrentInstance] {
+        Array(torrents.values)
     }
 
 }
