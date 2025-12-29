@@ -1,10 +1,10 @@
 import SwiftUI
 
 @main
-struct murmurationApp: App {
+struct MurmurationApp: App {
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      SwiftView()
     }
     .windowToolbarStyle(.unified)
   }

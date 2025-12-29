@@ -11,8 +11,8 @@ struct Torrent: View {
 
   var body: some View {
     HStack {
-      Spacer()
-      Spacer()
+      //      Spacer()
+      //      Spacer()
       Image(systemName: "text.document").font(.system(size: 30))
       Spacer()
       Spacer()
@@ -23,7 +23,7 @@ struct Torrent: View {
             .fontWeight(.thin)
         }
         HStack(spacing: 0) {
-          ProgressView(value: 0.65)
+          ProgressView(value: 0.95)
             .progressViewStyle(.linear)  // Ensures a horizontal bar
             .tint(.accentColor)
           Spacer()
@@ -31,7 +31,7 @@ struct Torrent: View {
           Button("resume", systemImage: "arrow.clockwise.circle") {}.frame(width: 10, height: 8)
           Spacer()
           Button("inspect", systemImage: "magnifyingglass") {}.frame(width: 10, height: 8)
-          Spacer()
+          //          Spacer()
         }.buttonStyle(.borderless)
         Text("Downloading from 0 of 0 peers - DL: 0.0 KB/s, UL: 0.0 KB/s").font(.system(size: 10))
           .fontWeight(.thin)

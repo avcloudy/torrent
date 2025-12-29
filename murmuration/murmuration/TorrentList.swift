@@ -4,18 +4,26 @@ import SwiftUI
 // for instance, need to preserve alternating colours
 struct TorrentList: View {
 
-  @Binding var selectedTorrent: Int?
+  @State public var selectedTorrent: Int? = nil
+  @Binding var isControlBarVisible: Bool
 
   var body: some View {
-    LazyVStack(spacing: 0) {
-      ForEach(0..<500, id: \.self) { index in
+    List {
+      if isControlBarVisible {
+        Color.clear
+          .frame(height: controlBarHeight + 4)
+          .listRowInsets(EdgeInsets())
+      }
+      ForEach(0..<500) { index in
         Torrent(index: index)
-          .background(
-            selectedTorrent == index
+          .listRowInsets(EdgeInsets())
+          .listRowBackground(
+            (selectedTorrent == index
               ? Color.accentColor.opacity(0.25)
               : index % 2 == 0
                 ? Color.gray.opacity(0.05)
-                : Color.gray.opacity(0.15)
+                : Color.gray.opacity(0.15))
+              .frame(maxWidth: .infinity)
           )
           .contentShape(Rectangle())
           .onTapGesture {
@@ -23,5 +31,7 @@ struct TorrentList: View {
           }
       }
     }
+    .frame(maxWidth: .infinity)
+
   }
 }

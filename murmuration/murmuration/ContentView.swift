@@ -1,13 +1,9 @@
 import AppKit
 import SwiftUI
 
-private let controlBarHeight: CGFloat = 10
-private let defaultOpacity: CGFloat = 0.3
-private let darkOpacity: CGFloat = 0.85
-
-private enum filterState {
-  case all, active, downloading, seeding, paused, error
-}
+//private let controlBarHeight: CGFloat = 10
+//private let defaultOpacity: CGFloat = 0.3
+//private let darkOpacity: CGFloat = 0.85
 
 // a way to access an NSWindow's internal properties
 struct WindowAccessor: NSViewRepresentable {
@@ -26,85 +22,6 @@ struct WindowAccessor: NSViewRepresentable {
   func updateNSView(_ nsView: NSView, context: Context) {}
 }
 
-struct ControlRow: View {
-  @State private var filter: filterState = .all
-
-  var body: some View {
-    HStack(spacing: 4) {  // originally 16
-      Spacer()
-      Toggle(
-        "All",
-        isOn: Binding(
-          get: { filter == .all },
-          set: { if $0 { filter = .all } }
-        )
-      )
-      .toggleStyle(.button)
-      .controlSize(.mini)
-      Divider()
-      Toggle(
-        "Active",
-        isOn: Binding(
-          get: { filter == .active },
-          set: { if $0 { filter = .active } }
-        )
-      )
-      .toggleStyle(.button)
-      .controlSize(.mini)
-      Divider()
-      Toggle(
-        "Downloading",
-        isOn: Binding(
-          get: { filter == .downloading },
-          set: { if $0 { filter = .downloading } }
-        )
-      )
-      .toggleStyle(.button)
-      .controlSize(.mini)
-      Divider()
-      Toggle(
-        "Seeding",
-        isOn: Binding(
-          get: { filter == .seeding },
-          set: { if $0 { filter = .seeding } }
-        )
-      )
-      .toggleStyle(.button)
-      .controlSize(.mini)
-      Divider()
-      Toggle(
-        "Paused",
-        isOn: Binding(
-          get: { filter == .paused },
-          set: { if $0 { filter = .paused } }
-        )
-      )
-      .toggleStyle(.button)
-      .controlSize(.mini)
-      Divider()
-      Toggle(
-        "Error",
-        isOn: Binding(
-          get: { filter == .error },
-          set: { if $0 { filter = .error } }
-        )
-      )
-      .toggleStyle(.button)
-      .controlSize(.mini)
-      Spacer()
-      Image(systemName: "arrowshape.down.fill")
-      Text("40.0 kbps").font(.caption)
-      Image(systemName: "arrowshape.up.fill")
-      Text("64.0 kbps").font(.caption)
-      Spacer()
-    }
-    //    .padding(.horizontal, 16)
-    .frame(height: controlBarHeight)
-    .background(.ultraThinMaterial.opacity(darkOpacity))
-    //    .background(.ultraThinMaterial.opacity(defaultOpacity))
-  }
-}
-
 struct ContentView: View {
 
   @State private var searchText: String = ""
@@ -116,9 +33,9 @@ struct ContentView: View {
     ZStack(alignment: .top) {
       HostingScrollView {
         VStack(spacing: 0) {
-          TorrentList(selectedTorrent: $selectedTorrent)
-            .offset(y: isControlBarVisible ? controlBarHeight + 5 : 0)
-            .animation(.easeInOut, value: isControlBarVisible)
+          //          TorrentList(selectedTorrent: $selectedTorrent)
+          //            .offset(y: isControlBarVisible ? controlBarHeight + 5 : 0)
+          //            .animation(.easeInOut, value: isControlBarVisible)
         }
       }
       .ignoresSafeArea(edges: .top)
